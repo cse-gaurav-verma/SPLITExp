@@ -1,0 +1,11 @@
+/* App-specific utility styles */
+
+.hide-on-mobile {
+  display: inline;
+}
+
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}

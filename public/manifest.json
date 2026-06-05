@@ -1,0 +1,29 @@
+{
+  "short_name": "SplitX",
+  "name": "SplitX - Modern Expense Splitter",
+  "description": "A clean, modern Splitwise clone to split expenses with friends and groups.",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#f4f6f5",
+  "theme_color": "#1cc29f",
+  "display": "standalone",
+  "orientation": "portrait-primary"
+}

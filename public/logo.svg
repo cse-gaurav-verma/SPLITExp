@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="128" fill="#1cc29f" />
+  <!-- A stylized division / X splitting path -->
+  <path d="M150 150 L362 362" stroke="white" stroke-width="48" stroke-linecap="round" />
+  <path d="M362 150 L150 362" stroke="white" stroke-width="48" stroke-linecap="round" />
+  <!-- Division dots on the sides or center -->
+  <circle cx="256" cy="130" r="36" fill="#ffffff" />
+  <circle cx="256" cy="382" r="36" fill="#ffffff" />
+</svg>
