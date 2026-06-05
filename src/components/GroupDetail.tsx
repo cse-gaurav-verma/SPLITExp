@@ -4,7 +4,7 @@ import type { Group, Profile, Expense, DebtSimplifyResult } from '../types';
 import { calculateGroupBalances } from '../utils/balance';
 import { AddExpenseModal } from './AddExpenseModal';
 import { SettleUpModal } from './SettleUpModal';
-import { ArrowLeft, Plus, DollarSign, Calendar, ChevronDown, ChevronUp, Trash2, HelpCircle, Check, Info } from 'lucide-react';
+import { ArrowLeft, Plus, ChevronDown, ChevronUp, Trash2, HelpCircle, Check } from 'lucide-react';
 
 interface GroupDetailProps {
   groupId: string;
@@ -377,7 +377,7 @@ export const GroupDetail: React.FC<GroupDetailProps> = ({
                 Everyone is completely settled up! No payments required.
               </p>
             ) : (
-              <div style={{ display: 'flex', flexHorizontal: 'column', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {simplifiedDebts.map((debt, index) => {
                   const isUserSender = debt.from === currentUser.id;
                   const isUserReceiver = debt.to === currentUser.id;

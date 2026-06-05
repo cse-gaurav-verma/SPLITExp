@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
 import type { Group, Profile, Expense } from '../types';
 import { calculateGroupBalances } from '../utils/balance';
-import { Plus, Users, ArrowUpRight, ArrowDownLeft, Trash2, X, UserPlus, Info } from 'lucide-react';
+import { Plus, Users, X, UserPlus, Info } from 'lucide-react';
 
 interface DashboardProps {
   currentUser: Profile;
@@ -16,7 +16,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ currentUser, onSelectGroup
   const [groupBalances, setGroupBalances] = useState<Record<string, number>>({});
   const [totalOwed, setTotalOwed] = useState(0); // Owed to current user (positive balances)
   const [totalOwe, setTotalOwe] = useState(0);   // Current user owes (negative balances)
-  const [recentExpenses, setRecentExpenses] = useState<Expense[]>([]);
+  const [recentExpenses, setRecentExpenses] = useState<(Expense & { group_name?: string })[]>([]);
   
   // Create Group Modal State
   const [isModalOpen, setIsModalOpen] = useState(false);

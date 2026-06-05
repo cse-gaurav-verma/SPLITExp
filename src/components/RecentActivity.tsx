@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
 import type { Profile, Expense } from '../types';
-import { Activity, Calendar, User, Info, AlertCircle } from 'lucide-react';
+import { Activity, Calendar, AlertCircle } from 'lucide-react';
 
 interface RecentActivityProps {
   currentUser: Profile;
@@ -104,7 +104,6 @@ export const RecentActivity: React.FC<RecentActivityProps> = ({ currentUser, onS
               month: 'short',
               day: 'numeric'
             });
-            const isSettlement = expense.category === 'settlement';
 
             return (
               <div

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase, clearSupabaseCredentials } from '../supabaseClient';
 import type { Profile } from '../types';
-import { User, Mail, ShieldAlert, LogOut, Database, Check } from 'lucide-react';
+import { User, Mail, LogOut, Database, Check } from 'lucide-react';
 
 interface UserProfileProps {
   currentUser: Profile;
