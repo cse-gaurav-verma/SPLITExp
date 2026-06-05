@@ -66,15 +66,33 @@ function App() {
       if (data) {
         setUserProfile(data);
       } else {
-        // Retry once in case trigger had a milliseconds delay
-        setTimeout(async () => {
-          const { data: retryData } = await supabase
+        // Profile doesn't exist - create one for manually created users
+        const { data: { user } } = await supabase.auth.getUser();
+        
+        if (user) {
+          const displayName = user.user_metadata?.display_name || user.email?.split('@')[0] || 'User';
+          const { data: newProfile, error: createError } = await supabase
             .from('profiles')
-            .select('*')
-            .eq('id', userId)
-            .maybeSingle();
-          if (retryData) setUserProfile(retryData);
-        }, 800);
+            .insert({
+              id: userId,
+              email: user.email || '',
+              display_name: displayName,
+            })
+            .select()
+            .single();
+
+          if (createError) {
+            // If creation fails, try fetching once more
+            const { data: retryData } = await supabase
+              .from('profiles')
+              .select('*')
+              .eq('id', userId)
+              .maybeSingle();
+            if (retryData) setUserProfile(retryData);
+          } else {
+            setUserProfile(newProfile);
+          }
+        }
       }
     } catch (err) {
       console.error('Error fetching profile:', err);

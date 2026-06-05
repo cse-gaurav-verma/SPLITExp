@@ -19,6 +19,11 @@ create policy "Public profiles are viewable by authenticated users"
   to authenticated
   using (true);
 
+create policy "Users can insert their own profile"
+  on public.profiles for insert
+  to authenticated
+  with check (auth.uid() = id);
+
 create policy "Users can update their own profile"
   on public.profiles for update
   to authenticated
